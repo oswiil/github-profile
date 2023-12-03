@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import "./styles/_base.scss";
 import AnimationCli from "./components/animationcli";

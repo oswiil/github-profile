@@ -10,7 +10,7 @@ export const Navbar = () => {
           OscarSG
         </a>
 
-        <a
+        <div
           role="button"
           className="navbar-burger"
           aria-label="menu"
@@ -20,7 +20,7 @@ export const Navbar = () => {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </div>
       </div>
 
       <div id="navbarBasicExample" className="navbar-menu">
@@ -37,14 +37,22 @@ export const Navbar = () => {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">More</a>
+              <div className="navbar-link">More</div>
 
               <div className="navbar-dropdown">
-                <a className="navbar-item">About</a>
-                <a className="navbar-item">Jobs</a>
-                <a className="navbar-item">Contact</a>
+                <a className="navbar-item" href="#studies">
+                  About
+                </a>
+                <a className="navbar-item" href="#studies">
+                  Jobs
+                </a>
+                <a className="navbar-item" href="#studies">
+                  Contact
+                </a>
                 <hr className="navbar-divider" />
-                <a className="navbar-item">Report an issue</a>
+                <a className="navbar-item" href="#studies">
+                  Report an issue
+                </a>
               </div>
             </div>
           </div>
