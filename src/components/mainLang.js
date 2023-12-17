@@ -52,9 +52,6 @@ function LangCli(user_name) {
     fetchData();
   }, [fetchData]);
 
-  const handlerCopy = (text) => {
-    window.prompt(text);
-  };
   return (
     <>
       {console.log(data) &&
