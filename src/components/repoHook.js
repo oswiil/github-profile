@@ -12,32 +12,6 @@ function RepoCli(user_name) {
         const response = await github.get(`/users/${user_name.data}/repos`);
         const repositories = response.data;
 
-        //   const repositoriesWithLanguages = [];
-        //   for (const repo of repositories) {
-        //     try {
-        //       // Hacer la solicitud de lenguajes
-        //       const languageResponse = await axios.get(repo.languages_url, {
-        //         baseURL: repo.languages_url,
-        //       });
-
-        //       const languages_url = languageResponse.data;
-
-        //       // Agregar el repositorio con los lenguajes al array final
-        //       repositoriesWithLanguages.push({
-        //         ...repo,
-        //         languages_url,
-        //       });
-
-        //       // Esperar un breve período de tiempo entre las solicitudes
-        //       await new Promise((resolve) => setTimeout(resolve, 1500)); // 1000 milisegundos (1 segundo)
-        //     } catch (languageError) {
-        //       console.error(
-        //         'Error al obtener lenguajes para el repositorio:',
-        //         languageError
-        //       );
-        //     }
-        //   }
-        //   console.log('secargo', repositoriesWithLanguages);
         setData(repositories);
       } catch (error) {
         console.error('Error al obtener datos:', error);
@@ -50,9 +24,6 @@ function RepoCli(user_name) {
     fetchData();
   }, [fetchData]);
 
-  const handlerCopy = (text) => {
-    window.prompt(text);
-  };
   return (
     <>
       {data.map((repo) => (
@@ -63,15 +34,10 @@ function RepoCli(user_name) {
             </a>
             <li>
               <p className="description">{repo.description}</p>
-              <p className="description">
-                {repo.language}
-                {/* <Progress languages={repo.language}></Progress>  */}
-              </p>
+              <p className="description">{repo.language}</p>
               <p>{repo.forks_count}</p>
               <p> {repo.default_branch}</p>
               <p>{repo.size / 1000 + '/mb'}</p>
-              {/* <div onClick={handlerCopy(repo.git_url)}></div> */}
-              {/* git_url ssh_url */}
             </li>
           </span>
         </div>
