@@ -1,8 +1,7 @@
 import './App.css';
 import './styles/_base.scss';
-import Repos from './components/repos.json';
-import MainRepos from './components/mainrepos.json';
-import MainReposSecond from './components/mainrepossecond.json';
+import MainRepos from './jsons/mainrepos.json';
+import MainReposSecond from './jsons/mainrepossecond.json';
 import Progress from './components//progress';
 import { Navbar } from './components/navBar';
 import { useState } from 'react';

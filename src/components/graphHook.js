@@ -1,17 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import github from '../utils/axios';
 
 function GraphCli(focus) {
-  console.log('🚀 ~ file: graphHook.js:14 ~ GraphCli ~ focus:', focus);
   const [data, setData] = useState(null);
 
   useEffect(() => {
