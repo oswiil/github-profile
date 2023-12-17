@@ -1,18 +1,19 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
 function Progress(data) {
+  console.log('🚀 ~ file: progress.js:5 ~ Progress ~ data:', data);
   const z = [];
   const Colors = {
-    JavaScript: "#f1e05a",
-    CSS: "#563d7c",
-    TypeScript: "#3178c6",
-    HTML: "#e34c26",
-    Less: "#1d365d",
-    Batchfile: "#C1F12E",
-    Dockerfile: "#384d54",
-    Shell: "#89e051",
-    Solidity: "#AA6746",
+    JavaScript: '#f1e05a',
+    CSS: '#563d7c',
+    TypeScript: '#3178c6',
+    HTML: '#e34c26',
+    Less: '#1d365d',
+    Batchfile: '#C1F12E',
+    Dockerfile: '#384d54',
+    Shell: '#89e051',
+    Solidity: '#AA6746',
   };
 
   Object.keys(data.languages).map((lang) => z.push(lang));
@@ -49,17 +50,18 @@ function Progress(data) {
 
   return (
     <>
-      <strong className="small">
-        {Object.values(z).map((value) => (
-          <div key={value}>
-            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="10" fill={Colors[value]} />
-            </svg>
-
-            {value}
-          </div>
-        ))}
-      </strong>
+      {(!z || !progressItems) && <p>Loading</p>}
+      <p className="columns is-multiline languages has-text-centered">
+        {z &&
+          Object.values(z).map((value) => (
+            <div key={value}>
+              <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="10" fill={Colors[value]} />
+              </svg>
+              {value}
+            </div>
+          ))}
+      </p>
       <span className="Progress" data-view-component="true">
         {progressItems}
       </span>

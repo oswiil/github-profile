@@ -6,7 +6,7 @@ export const Navbar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="#home">
+        <a className="navbar-item description" href="#home">
           OscarSG
         </a>
 
@@ -25,32 +25,32 @@ export const Navbar = () => {
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item" href="#studies">
+          <a className="navbar-item description" href="#studies">
             Background
           </a>
 
-          <a className="navbar-item" href="#projects">
+          <a className="navbar-item description" href="#projects">
             Projects
           </a>
         </div>
 
         <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="navbar-item has-dropdown is-hoverable">
-              <div className="navbar-link">More</div>
+          <div className="navbar-item description">
+            <div className="navbar-item description has-dropdown is-hoverable">
+              <div className="navbar-link description">More</div>
 
               <div className="navbar-dropdown">
-                <a className="navbar-item" href="#studies">
+                <a className="navbar-item description " href="#studies">
                   About
                 </a>
-                <a className="navbar-item" href="#studies">
+                <a className="navbar-item description" href="#studies">
                   Jobs
                 </a>
-                <a className="navbar-item" href="#studies">
+                <a className="navbar-item description" href="#studies">
                   Contact
                 </a>
                 <hr className="navbar-divider" />
-                <a className="navbar-item" href="#studies">
+                <a className="navbar-item description" href="#studies">
                   Report an issue
                 </a>
               </div>

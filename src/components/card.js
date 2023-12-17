@@ -1,15 +1,15 @@
-import "../styles/variables.scss";
+import '../styles/variables.scss';
 
 const CardComponent = ({ title, subtitle, text, imageUrl }) => {
   return (
-    <div className={`box has-text-centered `}>
+    <div className={`box has-text-centered description `}>
       <article className="media">
         <div className="media-left">
           <div src={imageUrl} alt="Image" height="100" width="100" />
         </div>
         <div className="media-content p-4">
           <p className="content is-large">
-            <strong>{title}</strong> <br />
+            <strong className="title">{title}</strong> <br />
             <small>{subtitle}</small>
             {text}
           </p>
