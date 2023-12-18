@@ -16,7 +16,7 @@ function RepoCli(user_name) {
     };
 
     fetchData();
-  }, [user_name]);
+  }, []);
 
   return (
     <>
