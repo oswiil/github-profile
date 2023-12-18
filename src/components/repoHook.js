@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import github from "../utils/axios";
 
-function RepoCli({ user_name }) {
+function RepoCli(user_name) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function RepoCli({ user_name }) {
 
     // Call fetchData only once by passing an empty dependency array
     fetchData();
-  }, [user_name.data]); // Add user_name.data to the dependency array
+  }, [user_name]); // Add user_name.data to the dependency array
 
   return (
     <>
