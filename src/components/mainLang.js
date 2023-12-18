@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import github from '../utils/axios';
-import Progress from './progress';
 import axios from 'axios';
 import debounce from 'lodash/debounce'; // Importa específicamente la función debounce de lodash
 
