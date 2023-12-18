@@ -1,28 +1,23 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import github from '../utils/axios';
-import debounce from 'lodash/debounce'; // Importa específicamente la función debounce de lodash
+import React, { useEffect, useState } from "react";
+import github from "../utils/axios";
 
 function RepoCli(user_name) {
-  console.log('🚀 ~ file: repoHook.js:8 ~ RepoCli ~ user_name:', user_name);
+  console.log("🚀 ~ file: repoHook.js:8 ~ RepoCli ~ user_name:", user_name);
   const [data, setData] = useState([]);
 
-  const fetchData = useCallback(
-    debounce(async () => {
+  useEffect(() => {
+    const fetchData = async () => {
       try {
         const response = await github.get(`/users/${user_name.data}/repos`);
         const repositories = response.data;
-
         setData(repositories);
       } catch (error) {
-        console.error('Error al obtener datos:', error);
+        console.error("Error al obtener datos:", error);
       }
-    }, 3000),
-    [user_name]
-  );
+    };
 
-  useEffect(() => {
     fetchData();
-  }, [fetchData]);
+  }, [user_name]);
 
   return (
     <>
@@ -37,7 +32,7 @@ function RepoCli(user_name) {
               <p className="description">{repo.language}</p>
               <p>{repo.forks_count}</p>
               <p> {repo.default_branch}</p>
-              <p>{repo.size / 1000 + '/mb'}</p>
+              <p>{repo.size / 1000 + "/mb"}</p>
             </li>
           </span>
         </div>

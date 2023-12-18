@@ -1,19 +1,18 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
 function Progress(data) {
-  console.log('🚀 ~ file: progress.js:5 ~ Progress ~ data:', data);
   const z = [];
   const Colors = {
-    JavaScript: '#f1e05a',
-    CSS: '#563d7c',
-    TypeScript: '#3178c6',
-    HTML: '#e34c26',
-    Less: '#1d365d',
-    Batchfile: '#C1F12E',
-    Dockerfile: '#384d54',
-    Shell: '#89e051',
-    Solidity: '#AA6746',
+    JavaScript: "#f1e05a",
+    CSS: "#563d7c",
+    TypeScript: "#3178c6",
+    HTML: "#e34c26",
+    Less: "#1d365d",
+    Batchfile: "#C1F12E",
+    Dockerfile: "#384d54",
+    Shell: "#89e051",
+    Solidity: "#AA6746",
   };
 
   Object.keys(data.languages).map((lang) => z.push(lang));
