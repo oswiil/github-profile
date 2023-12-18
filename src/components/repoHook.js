@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import github from "../utils/axios";
 
 function RepoCli(user_name) {
-  console.log("🚀 ~ file: repoHook.js:8 ~ RepoCli ~ user_name:", user_name);
   const [data, setData] = useState([]);
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import "./App.css";
 import "./styles/_base.scss";
-import MainRepos from "./jsons/mainrepos.json";
 import MainReposSecond from "./jsons/mainrepossecond.json";
 import Progress from "./components//progress";
 import { Navbar } from "./components/navBar";
