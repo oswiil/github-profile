@@ -40,7 +40,7 @@ github.interceptors.response.use(
 
 const redirectToGitHub = () => {
   const clientId = "Iv1.974fb44a9bcc8a75"; // Replace with your GitHub App's client ID
-  const redirectUri = "http://localhost:3000"; // Replace with your callback URL
+  const redirectUri = "https://www.osanchez.net"; // Replace with your callback URL
   const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}`;
 
   // Redirect the user to GitHub for authorization
@@ -50,7 +50,7 @@ const redirectToGitHub = () => {
 const exchangeCodeForAccessToken = async (code) => {
   const clientId = "Iv1.974fb44a9bcc8a75"; // Replace with your GitHub App's client ID
   const clientSecret = "70545b062f130d397b64bb3e3d0699b643312f69"; // Replace with your GitHub App's client secret
-  const redirectUri = "http://localhost:3000"; // Replace with your callback URL
+  const redirectUri = "https://www.osanchez.net"; // Replace with your callback URL
   console.log("estamos post");
   try {
     const response = await axios.post(
