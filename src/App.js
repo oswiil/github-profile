@@ -76,7 +76,7 @@ function App() {
 
           <div>
             <div className="columns is-multiline">
-              {/* <RepoCli data={user_name} /> */}
+              <RepoCli data={user_name} />
             </div>
           </div>
         </div>
