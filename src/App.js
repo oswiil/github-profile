@@ -1,21 +1,21 @@
-import './App.css';
-import './styles/_base.scss';
-import MainReposSecond from './jsons/mainrepossecond.json';
-import Progress from './components//progress';
-import { Navbar } from './components/navBar';
-import { useState } from 'react';
-import GraphCli from './components/graphHook';
-import RepoCli from './components/repoHook';
+import "./App.css";
+import "./styles/_base.scss";
+import MainReposSecond from "./jsons/mainrepossecond.json";
+import Progress from "./components//progress";
+import { Navbar } from "./components/navBar";
+import { useState } from "react";
+import GraphCli from "./components/graphHook";
+import RepoCli from "./components/repoHook";
 
 function App() {
-  const [focus, setRepoFocus] = useState('updated-portfolio');
-  const [user_name, setUserName] = useState('oswiil');
+  const [focus, setRepoFocus] = useState("updated-portfolio");
+  const [user_name, setUserName] = useState("oswiil");
 
   return (
     <div className="App" id="home">
       <Navbar className="navbar" />
       <header className="header">
-        {' '}
+        {" "}
         <div className="column has-text-centered p-6">
           <h1 className="title ">Aplicación de React usando Github API Rest</h1>
           <h2 className="description">
@@ -23,11 +23,11 @@ function App() {
             Github mostrando el lenguaje principal, las métricas de actividad y
             facilitar la visibilidad de los repositorios que posee. Aún se está
             implementando, aqui se puede ver la actividad de este mismo proyecto
-          </h2>{' '}
+          </h2>{" "}
         </div>
       </header>
       <div>
-        {' '}
+        {" "}
         <div className="columns is-desktop p-6 is-relative">
           <div className="column is-full-mobile is-one-third-desktop">
             <div className="is-sticky pt-7">
@@ -63,7 +63,7 @@ function App() {
             Mostrar repositorios del usuario {user_name}
           </h5>
           <div className="column languages mb-4">
-            {' '}
+            {" "}
             <label for="usearch" className="title"></label>
             <input
               className="box"
@@ -76,7 +76,7 @@ function App() {
 
           <div>
             <div className="columns is-multiline">
-              <RepoCli data={user_name} />
+              {/* <RepoCli data={user_name} /> */}
             </div>
           </div>
         </div>
