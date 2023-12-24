@@ -5,38 +5,38 @@ const github = axios.create({ baseURL: "https://api.github.com" });
 let accessToken = null;
 
 github.interceptors.request.use(async (config) => {
-  config.headers.Authorization = `Bearer ${accessToken}`;
-  config.headers["Content-Type"] = "application/json";
-  config.headers["X-GitHub-Api-Version"] = "2022-11-28";
-  config.headers["Accept"] = "application/vnd.github+json";
+  // config.headers.Authorization = `Bearer ${accessToken}`;
+  // config.headers["Content-Type"] = "application/json";
+  // config.headers["X-GitHub-Api-Version"] = "2022-11-28";
+  // config.headers["Accept"] = "application/vnd.github+json";
   return config;
 });
 
-github.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (error) => {
-    if (error.response && error.response.status === 401) {
-      const urlParams = new URLSearchParams(window.location.search);
-      const authorizationCode = urlParams.get("code");
-      console.log("log ~ authorizationCode:", authorizationCode);
+// github.interceptors.response.use(
+//   (response) => {
+//     return response;
+//   },
+//   async (error) => {
+//     if (error.response && error.response.status === 401) {
+//       const urlParams = new URLSearchParams(window.location.search);
+//       const authorizationCode = urlParams.get("code");
+//       console.log("log ~ authorizationCode:", authorizationCode);
 
-      try {
-        if (authorizationCode) {
-          console.log("entramoas aqu");
-          await exchangeCodeForAccessToken(authorizationCode);
-        } else {
-          redirectToGitHub();
-        }
-      } catch (authError) {
-        console.error("Authorization Error:", authError.message);
-        // Handle the error, e.g., show a message to the user
-      }
-    }
-    return Promise.reject(error);
-  }
-);
+//       try {
+//         if (authorizationCode) {
+//           console.log("entramoas aqu");
+//           await exchangeCodeForAccessToken(authorizationCode);
+//         } else {
+//           redirectToGitHub();
+//         }
+//       } catch (authError) {
+//         console.error("Authorization Error:", authError.message);
+//         // Handle the error, e.g., show a message to the user
+//       }
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 const redirectToGitHub = () => {
   const clientId = "Iv1.974fb44a9bcc8a75"; // Replace with your GitHub App's client ID
