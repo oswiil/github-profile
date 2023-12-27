@@ -1,14 +1,12 @@
 import "./App.css";
 import "./styles/_base.scss";
-import MainReposSecond from "./jsons/mainrepossecond.json";
-import Progress from "./components//progress";
 import { Navbar } from "./components/navBar";
 import { useState } from "react";
-import GraphCli from "./components/graphHook";
 import RepoCli from "./components/repoHook";
+import MainLang from "./components/getmainlang";
+import RepoCli2 from "./components/repoHook2";
 
 function App() {
-  const [focus, setRepoFocus] = useState("updated-portfolio");
   const [user_name, setUserName] = useState("oswiil");
 
   return (
@@ -17,69 +15,49 @@ function App() {
       <header className="header">
         {" "}
         <div className="column has-text-centered p-6">
-          <h1 className="title ">Aplicación de React usando Github API Rest</h1>
-          <h2 className="description">
-            La intención de este proyecto es recopilar datos de usuarios de
-            Github mostrando el lenguaje principal, las métricas de actividad y
-            facilitar la visibilidad de los repositorios que posee. Aún se está
-            implementando, aqui se puede ver la actividad de este mismo proyecto
-          </h2>{" "}
-        </div>
-      </header>
-      <div>
-        {" "}
-        <div className="columns is-desktop p-6 is-relative">
-          <div className="column is-full-mobile is-one-third-desktop">
-            <div className="is-sticky pt-7">
-              <GraphCli data={focus} />
-            </div>
+          <h2 className="title">Github profile searcher</h2>{" "}
+          <div className="description">
+            {" "}
+            Busca un usuario de Github para listar sus repositorios, ver su
+            actividad y mostrar los principales lenguajes.
           </div>
-          <div className="column is-two-thirds-desktop is-multiline h-2">
-            {MainReposSecond.map((repo) => {
-              return (
-                <div key={repo.id}>
-                  <div
-                    className="box mt-5"
-                    onClick={() => setRepoFocus(repo.name)}
-                  >
-                    <p className="title">{repo.name}</p>
-                    <p className="description">{repo.description}</p>
-                    <li>
-                      <>
-                        <Progress languages={repo.languages_url}></Progress>
-                      </>
-                    </li>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      <div className="columns is-desktop p-6 is-multiline" id="studies">
-        <div className="column is-offset mt-6">
-          <div className="center mt-6"></div>
-          <h5 className="title has-text-centered" id="projects">
-            Mostrar repositorios del usuario {user_name}
-          </h5>
-          <div className="column languages mb-4">
+          <div className="has-text-centered mb-4">
             {" "}
             <label for="usearch" className="title"></label>
             <input
-              className="box"
+              className="search"
               type="search"
               id="gsearch"
+              placeholder="buscar un usuario"
               name="usearch"
               onChange={(e) => setUserName(e.target.value)}
             ></input>
           </div>
-
+        </div>
+      </header>
+      <MainLang data={user_name}></MainLang>
+      <div> </div>
+      <RepoCli2 data={user_name}></RepoCli2>
+      <div className="columns is-desktop p-6 is-multiline" id="studies">
+        <div className="column is-offset mt-6">
+          <div className="center mt-6"></div>
+          <h5 className="title has-text-centered" id="projects">
+            Repositorios del usuario {user_name}
+          </h5>
           <div>
             <div className="columns is-multiline">
               <RepoCli data={user_name} />
             </div>
           </div>
         </div>
+      </div>
+      <div className="description">Hecho por Òscar-Sánchez</div>
+      <div className="description">
+        Documentación de Github
+        <a href="https://docs.github.com/en/rest?apiVersion=2022-11-28">
+          {" "}
+          API REST
+        </a>
       </div>
     </div>
   );
