@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from "recharts";
-import github, { getRepoLangAPI } from "../utils/axios";
+import React, { useEffect, useState, useCallback } from "react";
+import { getRepoLangAPI } from "../utils/axios";
 import Progress from "./progress";
-function Languages(focus, user_name) {
+
+function Languages({ focus, user_name }) {
   const [data, setData] = useState(null);
 
-  const getLangData = async () => {
-    await getRepoLangAPI(focus, user_name)
-      .then(({ data: response }) => {
-        console.log("log ~ .then ~ response:", response);
-        setData(response);
-      })
-      .catch((error) => {
-        throw new Error(("errors.fetch-error-user-data", { data: error.data }));
-      });
-  };
+  const getLangData = useCallback(async () => {
+    try {
+      const { data: response } = await getRepoLangAPI(focus, user_name);
+      setData(response);
+    } catch (error) {
+      console.error("Error fetching language data:", error);
+    }
+  }, [focus, user_name]);
 
   useEffect(() => {
     getLangData();
-  }, [focus, user_name]);
+  }, [getLangData]);
 
   return (
     <>
