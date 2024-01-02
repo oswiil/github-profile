@@ -2,7 +2,6 @@ import "./App.css";
 import "./styles/_base.scss";
 import { Navbar } from "./components/navBar";
 import { useState } from "react";
-import RepoCli from "./components/repoHook";
 import MainLang from "./components/getmainlang";
 import RepoCli2 from "./components/repoHook2";
 
