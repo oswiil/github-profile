@@ -39,14 +39,17 @@ function App() {
       <div> </div>
       <RepoCli2 data={user_name}></RepoCli2>
       <div className="columns is-desktop p-6 is-multiline" id="studies"></div>
-      <div className="description">Hecho por Òscar-Sánchez</div>
-      <div className="description">
-        Documentación de Github
-        <a href="https://docs.github.com/en/rest?apiVersion=2022-11-28">
-          {" "}
-          API REST
-        </a>
-      </div>
+
+      <footer>
+        <div className="description">Hecho por Òscar-Sánchez</div>
+        <div className="description">
+          Documentación de Github
+          <a href="https://docs.github.com/en/rest?apiVersion=2022-11-28">
+            {" "}
+            API REST
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
