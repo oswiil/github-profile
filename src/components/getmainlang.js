@@ -4,13 +4,13 @@ import Progress from "./progressGeneral";
 import github from "../utils/axios";
 import debounce from "lodash/debounce";
 
-function MainLang(user_name) {
+function MainLang({ user_name, owner }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await github.get(`/users/${user_name.data}/repos`);
+        const response = await github.get(`/users/${user_name}/repos`);
         const repositories = response.data;
 
         const languagePromises = repositories.map((repo) =>
@@ -46,14 +46,11 @@ function MainLang(user_name) {
       {data && (
         <div>
           {/* <span className="box"> */}
-          <p className="description mt-5">
-            Principales lenguajes del usuario <strong>{user_name.data}</strong>
+
+          <p className="description has-text-centered">
+            <Progress languages={data} owner={user_name}></Progress>
           </p>
-          <li>
-            <p className="description has-text-centered">
-              <Progress languages={data}></Progress>
-            </p>
-          </li>
+
           {/* </span> */}
         </div>
       )}

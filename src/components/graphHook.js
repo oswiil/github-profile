@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-import github from '../utils/axios';
+import React, { useEffect, useState } from "react";
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from "recharts";
+import github from "../utils/axios";
 
 function GraphCli(focus) {
   const [data, setData] = useState(null);
@@ -19,7 +19,7 @@ function GraphCli(focus) {
         setData(transformedData);
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       });
   }, [focus]);
 
@@ -29,7 +29,7 @@ function GraphCli(focus) {
       {data && (
         <LineChart
           width={400}
-          height={399}
+          height={200}
           data={data}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >

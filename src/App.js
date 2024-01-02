@@ -35,22 +35,10 @@ function App() {
           </div>
         </div>
       </header>
-      <MainLang data={user_name}></MainLang>
+      <MainLang user_name={user_name}></MainLang>
       <div> </div>
       <RepoCli2 data={user_name}></RepoCli2>
-      <div className="columns is-desktop p-6 is-multiline" id="studies">
-        <div className="column is-offset mt-6">
-          <div className="center mt-6"></div>
-          <h5 className="title has-text-centered" id="projects">
-            Repositorios del usuario {user_name}
-          </h5>
-          <div>
-            <div className="columns is-multiline">
-              <RepoCli data={user_name} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="columns is-desktop p-6 is-multiline" id="studies"></div>
       <div className="description">Hecho por Òscar-Sánchez</div>
       <div className="description">
         Documentación de Github

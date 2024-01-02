@@ -85,5 +85,44 @@ github.interceptors.request.use(async (config) => {
 //     throw error;
 //   }
 // };
+export const getUserRepoAPI = async (user_name) => {
+  return await github.get(`/users/${user_name}/repos`);
+};
 
+export const getRepoGraphAPI = async (repo_name) => {
+  return await github.get(`/repos/oswiil/${repo_name}/stats/code_frequency`);
+};
+
+export const getRepoLangAPI = async ({ focus, user_name }) => {
+  return await github.get(`/repos/${user_name}/${focus}/languages`);
+};
+
+export const getUserLang = async (repoResponse) => {
+  console.log("log ~ getUserLang ~ repoResponse:", repoResponse);
+  let repositoriesWithLanguages = [];
+  for (const repo of repoResponse) {
+    console.log("log ~ getUserLang ~ repo:", repo);
+    try {
+      const languageResponse = await axios.get(repo.languages_url, {
+        baseURL: repo.languages_url,
+      });
+
+      const languages_urll = languageResponse.data;
+
+      repositoriesWithLanguages.push({
+        ...repo,
+        languages_urll,
+      });
+
+      // Use debounce here to avoid making too many requests in a short time
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+    } catch (languageError) {
+      console.error(
+        "Error al obtener lenguajes para el repositorio:",
+        languageError
+      );
+    }
+  }
+  return repositoriesWithLanguages;
+};
 export default github;

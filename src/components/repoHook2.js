@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import github from "../utils/axios";
 import GraphCli from "./graphHook";
+import Languages from "./languages";
+import Detail from "./detail";
 
 function RepoCli2(user_name) {
   const [data, setData] = useState([]);
@@ -34,8 +36,9 @@ function RepoCli2(user_name) {
       <div className="columns is-desktop p-6 is-relative">
         <div className="column is-full-mobile is-one-third-desktop">
           <div className="is-sticky pt-7">
+            <Detail focus={focus} repos={data}></Detail>
             <GraphCli data={focus} />
-            Actividad del repositorio
+            <Languages focus={focus} user_name={user_name.data}></Languages>
           </div>
         </div>
         <div className="column is-full-mobile is-two-thirds-desktop">

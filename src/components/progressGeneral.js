@@ -1,6 +1,6 @@
 import React from "react";
 
-function Progress({ languages }) {
+function Progress({ languages, owner }) {
   const Colors = {
     JavaScript: "#f1e05a",
     CSS: "#563d7c",
@@ -70,21 +70,36 @@ function Progress({ languages }) {
 
   return (
     <>
-      <p className="columns is-multiline languages has-text-centered">
-        {Array.from(uniqueLanguages).map((value) => (
-          <div key={value}>
-            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="10" fill={Colors[value]} />
-            </svg>
-            {value}
+      <div className="container has-text-centered">
+        <div className="columns is-centered mt-1">
+          <div className="column is-one-third">
+            <h1 className="description">Usuario {owner}</h1>
           </div>
-        ))}
-      </p>
-      <p className="description">Lenguaje más usado</p>
-      <p className="title">{mainLanguage}</p>
-      <span className="Progress" data-view-component="true">
-        {progressItems}
-      </span>
+          <div className="column is-two-thirds">
+            <p className="description">Lenguaje más usado</p>
+            <p className="title">{mainLanguage}</p>
+            <div className="languages">
+              {Array.from(uniqueLanguages).map((value) => (
+                <div key={value}>
+                  <svg
+                    width="20"
+                    height="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="10" cy="10" r="10" fill={Colors[value]} />
+                  </svg>
+                  {value}
+                </div>
+              ))}
+              <span className="Progress" data-view-component="true">
+                {progressItems}
+              </span>
+            </div>
+          </div>
+
+          {/* Segunda columna */}
+        </div>
+      </div>
     </>
   );
 }
